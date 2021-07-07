@@ -5,13 +5,16 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, ref, useContext } from "vue";
-const props = defineProps({
-  value: Boolean,
-});
-const context = useContext();
+const props = defineProps<{
+  value: Boolean;
+}>();
+
+const emit = defineEmits<{
+  (event: "update:value", value: boolean): void;
+}>();
+
 const toggle = () => {
-  context.emit("update:value", !props.value);
+  emit("update:value", !props.value);
 };
 </script>
 

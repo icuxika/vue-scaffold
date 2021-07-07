@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineProps, useContext } from "vue";
+import { computed, defineProps } from "vue";
 const { theme, size, level, disabled, loading } = defineProps({
   theme: {
     type: String,
