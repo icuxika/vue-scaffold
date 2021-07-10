@@ -34,8 +34,8 @@ a {
   text-decoration: none;
   color: inherit;
   &:hover {
-    border-bottom: 1px solid;
     cursor: pointer;
+    text-decoration: underline;
   }
 }
 

@@ -1,11 +1,13 @@
+<demo>
+支持disabled
+</demo>
+
 <template>
-  <div>
-    <Switch v-model:value="activate" />
-  </div>
+  <Switch v-model:value="bool" disabled />
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
 import Switch from "../libs/Switch.vue";
-const activate = ref(false);
+const bool = ref(false);
 </script>

@@ -1,8 +1,16 @@
 <template>
   <div class="layout">
-    <TopNav class="nav" />
+    <TopNav toggleMenuButtonVisible class="nav" />
     <div class="content">
       <aside v-if="menuVisible">
+        <h2>文档</h2>
+        <ol>
+          <li>
+            <router-link to="/ui/doc/introduction">介绍</router-link>
+            <router-link to="/ui/doc/install">安装</router-link>
+            <router-link to="/ui/doc/start">开始使用</router-link>
+          </li>
+        </ol>
         <h2>组件列表</h2>
         <ol>
           <li>
@@ -64,7 +72,6 @@ const menuVisible = inject<Ref<boolean>>('menuVisible')
 aside {
   background: lightblue;
   width: 150px;
-  padding: 16px;
   position: fixed;
   top: 0;
   left: 0;
@@ -72,10 +79,18 @@ aside {
   height: 100%;
   > h2 {
     margin-bottom: 4px;
+    padding: 16px;
   }
   > ol {
     > li {
-      padding: 4px 0;
+      > a {
+        display: block;
+        padding: 4px 16px;
+        text-decoration: none;
+      }
+      .router-link-active {
+        background: white;
+      }
     }
   }
 }
