@@ -2,13 +2,14 @@
   <button class="v3-button" :class="classes" :disabled="disabled">
     <span v-if="loading" class="v3-loading-indicator"></span>
     <span v-else class="v3-loading-indicator-empty"></span>
-    <slot />
+    <slot/>
   </button>
 </template>
 
 <script setup lang="ts">
-import { computed, defineProps } from "vue";
-const { theme, size, level, disabled, loading } = defineProps({
+import {computed} from "vue";
+
+const {theme, size, level, disabled, loading} = defineProps({
   theme: {
     type: String,
     default: "button",
@@ -62,43 +63,53 @@ $grey: grey;
   border-radius: $radius;
   box-shadow: 0 1px 0 fade-out($color: #000000, $amount: 0.95);
   transition: background 250ms;
+
   & + & {
     margin-left: 8px;
   }
+
   &:hover,
   &:focus {
     color: $blue;
     border-color: $blue;
   }
+
   &:focus {
     outline: none;
   }
+
   &::-moz-focus-inner {
     border: 0;
   }
+
   &.v3-theme-link {
     border-color: transparent;
     box-shadow: none;
     color: $blue;
+
     &:hover,
     &:focus {
       color: lighten($color: $blue, $amount: 10%);
     }
   }
+
   &.v3-theme-text {
     border-color: transparent;
     box-shadow: none;
     color: inherit;
+
     &:hover,
     &:focus {
       background: darken($color: white, $amount: 5%);
     }
   }
+
   &.v3-size-big {
     font-size: 24px;
     height: 48px;
     padding: 0 16px;
   }
+
   &.v3-size-small {
     font-size: 12px;
     height: 20px;
@@ -110,16 +121,19 @@ $grey: grey;
       background: $blue;
       color: white;
       border-color: $blue;
+
       &:hover,
       &:focus {
         background: darken($color: $blue, $amount: 10%);
         border-color: darken($color: $blue, $amount: 10%);
       }
     }
+
     &.v3-level-danger {
       background: $red;
       color: white;
       border-color: $red;
+
       &:hover,
       &:focus {
         background: darken($color: $red, $amount: 10%);
@@ -127,40 +141,49 @@ $grey: grey;
       }
     }
   }
+
   &.v3-theme-link {
     &.v3-level-danger {
       color: $red;
+
       &:hover,
       &:focus {
         color: darken($color: $red, $amount: 10%);
       }
     }
   }
+
   &.v3-theme-text {
     &.v3-level-main {
       color: $blue;
+
       &:hover,
       &:focus {
         color: darken($color: $blue, $amount: 10%);
       }
     }
+
     &.v3-level-danger {
       color: $red;
+
       &:hover,
       &:focus {
         color: darken($color: $red, $amount: 10%);
       }
     }
   }
+
   &.v3-theme-button {
     &[disabled] {
       cursor: not-allowed;
       color: $grey;
+
       &:hover {
         border-color: $grey;
       }
     }
   }
+
   &.v3-theme-link,
   &.v3-theme-text {
     &[disabled] {
@@ -168,6 +191,7 @@ $grey: grey;
       color: $grey;
     }
   }
+
   > .v3-loading-indicator {
     width: 15px;
     height: 15px;
@@ -179,6 +203,7 @@ $grey: grey;
     border-width: 2px;
     animation: v3-spin 1s infinite linear;
   }
+
   // 使loading状态的按钮所在的div中的按钮在同一基准高度
   > .v3-loading-indicator-empty {
     height: 15px;

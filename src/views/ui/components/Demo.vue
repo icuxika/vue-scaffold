@@ -2,36 +2,39 @@
   <div class="demo">
     <h2>{{ title }}</h2>
     <div class="demo-component">
-      <component :is="component" />
+      <component :is="component"/>
     </div>
     <div class="demo-actions">
       <Button @click="toggleCode">{{
-        codeVisible ? "隐藏源代码" : "查看源代码"
-      }}</Button>
+          codeVisible ? "隐藏源代码" : "查看源代码"
+        }}
+      </Button>
     </div>
     <div class="demo-code" v-if="codeVisible">
-      <pre class="language-html" v-html="html" />
+      <pre class="language-html" v-html="html"/>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import {computed, ref} from "vue";
 import "prismjs";
 import "prismjs/themes/prism.css";
 import Button from "../libs/Button.vue";
+
 interface Props {
   component: any;
 }
+
 const props = withDefaults(defineProps<Props>(), {});
 const title = ref<string>("");
 title.value = props.component.__sourceCodeTitle;
 const Prism = (window as any).Prism;
 const html = computed(() => {
   return Prism.highlight(
-    props.component.__sourceCode,
-    Prism.languages.html,
-    "html"
+      props.component.__sourceCode,
+      Prism.languages.html,
+      "html"
   );
 });
 const codeVisible = ref(false);

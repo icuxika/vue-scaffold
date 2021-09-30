@@ -17,19 +17,21 @@
 </template>
 
 <script setup lang="ts">
-import type { Ref } from 'vue'
-import { inject } from "vue";
+import type {Ref} from 'vue'
+import {inject} from "vue";
+
 interface Props {
   toggleMenuButtonVisible: boolean
 }
+
 const props = withDefaults(defineProps<Props>(), {
   toggleMenuButtonVisible: false
 })
 const menuVisible = inject<Ref<boolean>>('menuVisible')
 const toggleMenu = () => {
-    if (menuVisible !== undefined) {
-        menuVisible.value = !menuVisible.value
-    }
+  if (menuVisible !== undefined) {
+    menuVisible.value = !menuVisible.value
+  }
 }
 </script>
 
@@ -45,6 +47,7 @@ const toggleMenu = () => {
   justify-content: center;
   align-items: center;
   color: #3f19a6;
+
   > .logo {
     max-width: 6em;
     margin-right: auto;
@@ -54,10 +57,12 @@ const toggleMenu = () => {
       height: 32px;
     }
   }
+
   > .menu {
     display: flex;
     white-space: nowrap;
     flex-wrap: nowrap;
+
     > li {
       margin: 0 1em;
     }

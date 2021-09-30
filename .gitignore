@@ -12,3 +12,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Yarn error
+yarn-error.log

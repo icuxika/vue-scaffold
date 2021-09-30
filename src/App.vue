@@ -1,10 +1,13 @@
 <template>
-  <router-view />
+  <n-loading-bar-provider>
+    <RootLayout/>
+  </n-loading-bar-provider>
 </template>
 
 <script setup lang="ts">
-import { provide, ref } from "vue";
-import { router } from "./router";
+import RootLayout from "./layouts/RootLayout.vue";
+import {provide, ref} from "vue";
+import router from "./router";
 
 const width = document.documentElement.clientWidth;
 // 控制文档菜单是否显示
@@ -15,6 +18,7 @@ router.afterEach(() => {
     menuVisible.value = false;
   }
 });
+
 </script>
 
 <style lang="scss">
@@ -33,6 +37,7 @@ ol {
 a {
   text-decoration: none;
   color: inherit;
+
   &:hover {
     cursor: pointer;
     text-decoration: underline;
@@ -46,6 +51,14 @@ h4,
 h5,
 h6 {
   font-weight: normal;
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
 }
 
 #app {

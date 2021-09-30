@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <TopNav :toggleMenuButtonVisible="false" />
+    <TopNav :toggleMenuButtonVisible="false"/>
     <div class="banner">
       <h1>Vue3 UI</h1>
       <h2>Vue3 UI 框架</h2>
@@ -38,24 +38,24 @@
 </template>
 
 <script setup lang="ts">
-import TopNav from "./components/TopNav.vue";
-</script>
+import TopNav from "./components/TopNav.vue";</script>
 
 <style lang="scss" scoped>
 .container {
   background: linear-gradient(
-    90deg,
-    rgba(146, 143, 194, 1) 0%,
-    rgba(150, 240, 228, 1) 35%,
-    rgba(3, 178, 200, 1) 76%,
-    rgba(3, 182, 207, 1) 79%,
-    rgba(2, 189, 218, 1) 84%,
-    rgba(1, 198, 232, 0.7189250700280112) 94%,
-    rgba(0, 212, 255, 1) 100%
+          90deg,
+          rgba(146, 143, 194, 1) 0%,
+          rgba(150, 240, 228, 1) 35%,
+          rgba(3, 178, 200, 1) 76%,
+          rgba(3, 182, 207, 1) 79%,
+          rgba(2, 189, 218, 1) 84%,
+          rgba(1, 198, 232, 0.7189250700280112) 94%,
+          rgba(0, 212, 255, 1) 100%
   );
   // 圆弧
   clip-path: ellipse(80% 60% at 50% 40%);
 }
+
 .banner {
   padding: 100px 0;
   display: flex;
@@ -66,6 +66,7 @@ import TopNav from "./components/TopNav.vue";
 
   > .actions {
     padding: 8px 0;
+
     a {
       margin: 0 8px;
       background: #e95939;
@@ -80,6 +81,7 @@ import TopNav from "./components/TopNav.vue";
     }
   }
 }
+
 .features {
   margin: 64px auto;
   padding: 0 16px;

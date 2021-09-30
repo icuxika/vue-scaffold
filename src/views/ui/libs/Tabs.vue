@@ -2,9 +2,9 @@
   <div class="v3-tabs">
     <div class="v3-tabs-nav" ref="container">
       <div
-        class="v3-tabs-nav-item"
-        v-for="(t, index) in titles"
-        :ref="
+          class="v3-tabs-nav-item"
+          v-for="(t, index) in titles"
+          :ref="
           (el) => {
             if (t === selected) {
               // 此处待解决的一个赋值时类型冲突的问题，暂时用any解决
@@ -12,27 +12,28 @@
             }
           }
         "
-        @click="select(t)"
-        :class="{ selected: t === selected }"
-        :key="index"
+          @click="select(t)"
+          :class="{ selected: t === selected }"
+          :key="index"
       >
         {{ t }}
       </div>
       <div class="v3-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="v3-tabs-content">
-      <component :is="current" :key="current?.props?.title" />
+      <component :is="current" :key="current?.props?.title"/>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref, useSlots, watchEffect } from "vue";
+import {computed, onMounted, ref, useSlots, watchEffect} from "vue";
 import Tab from "./Tab.vue";
 
 interface Props {
   selected: String;
 }
+
 const props = withDefaults(defineProps<Props>(), {});
 
 const emit = defineEmits<{
@@ -46,12 +47,12 @@ const container = ref<HTMLDivElement>();
 onMounted(() => {
   watchEffect(() => {
     if (selectedItem.value) {
-      const { width } = selectedItem.value.getBoundingClientRect();
+      const {width} = selectedItem.value.getBoundingClientRect();
       if (indicator.value) {
         indicator.value.style.width = width + "px";
         if (container.value) {
-          const { left: left1 } = container.value.getBoundingClientRect();
-          const { left: left2 } = selectedItem.value.getBoundingClientRect();
+          const {left: left1} = container.value.getBoundingClientRect();
+          const {left: left2} = selectedItem.value.getBoundingClientRect();
           const left = left2 - left1;
           indicator.value.style.left = left + "px";
         }

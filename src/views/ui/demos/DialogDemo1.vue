@@ -16,9 +16,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import {ref} from "vue";
 import Button from "../libs/Button.vue";
 import Dialog from "../libs/Dialog.vue";
+
 const x = ref(false);
 const toggle = () => {
   x.value = !x.value;
@@ -26,5 +27,6 @@ const toggle = () => {
 const f1 = () => {
   return false;
 };
-const f2 = () => {};
+const f2 = () => {
+};
 </script>

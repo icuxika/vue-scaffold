@@ -1,4 +1,4 @@
-import { createWebHistory, createRouter } from "vue-router";
+import {createRouter, createWebHistory} from "vue-router";
 
 import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
@@ -11,65 +11,93 @@ import UIButtonDemo from "../views/ui/demos/ButtonDemo.vue";
 import UIDialogDemo from "../views/ui/demos/DialogDemo.vue";
 import UITabsDemo from "../views/ui/demos/TabsDemo.vue";
 
-import { h } from "vue";
+import {h} from "vue";
 import Markdown from "../views/ui/components/Markdown.vue";
 import Introduction from "../views/ui/markdowns/Introduction.md";
 import Install from "../views/ui/markdowns/Install.md";
 import Start from "../views/ui/markdowns/Start.md";
-const md = (string: string) => h(Markdown, { content: string, key: string });
+import BlogIndex from "../views/blog/Index.vue";
+import BlogList from "../views/blog/List.vue";
+import BlogCreate from "../views/blog/Create.vue";
 
-export const router = createRouter({
-  history: createWebHistory(),
-  routes: [
-    {
-      path: "/",
-      component: Home,
-    },
-    {
-      path: "/login",
-      component: Login,
-    },
-    {
-      path: "/ui",
-      component: UIHome,
-    },
-    {
-      path: "/ui/doc",
-      component: UIDoc,
-      children: [
+const md = (string: string) => h(Markdown, {content: string, key: string});
+
+const router = createRouter({
+    history: createWebHistory(),
+    routes: [
         {
-          path: "",
-          redirect: "/ui/doc/introduction",
+            path: "/",
+            component: Home,
         },
         {
-          path: "introduction",
-          component: md(Introduction),
+            path: "/login",
+            component: Login,
         },
         {
-          path: "install",
-          component: md(Install),
+            path: "/ui",
+            component: UIHome,
         },
         {
-          path: "start",
-          component: md(Start),
+            path: "/ui/doc",
+            component: UIDoc,
+            children: [
+                {
+                    path: "",
+                    redirect: "/ui/doc/introduction",
+                },
+                {
+                    path: "introduction",
+                    component: md(Introduction),
+                },
+                {
+                    path: "install",
+                    component: md(Install),
+                },
+                {
+                    path: "start",
+                    component: md(Start),
+                },
+                {
+                    path: "switch",
+                    component: UISwitchDemo,
+                },
+                {
+                    path: "button",
+                    component: UIButtonDemo,
+                },
+                {
+                    path: "dialog",
+                    component: UIDialogDemo,
+                },
+                {
+                    path: "tabs",
+                    component: UITabsDemo,
+                },
+            ],
         },
         {
-          path: "switch",
-          component: UISwitchDemo,
-        },
-        {
-          path: "button",
-          component: UIButtonDemo,
-        },
-        {
-          path: "dialog",
-          component: UIDialogDemo,
-        },
-        {
-          path: "tabs",
-          component: UITabsDemo,
-        },
-      ],
-    },
-  ],
+            path: "/blog",
+            component: BlogIndex,
+            children: [
+                {
+                    path: "",
+                    redirect: "/blog/index"
+                },
+                {
+                    path: "index",
+                    component: BlogList
+                },
+                {
+                    path: "create",
+                    component: BlogCreate
+                }
+            ]
+        }
+    ],
 });
+
+router.beforeEach((to, from, next) => {
+    next()
+})
+
+export default router

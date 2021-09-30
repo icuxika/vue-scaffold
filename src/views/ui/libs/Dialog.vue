@@ -5,11 +5,11 @@
       <div class="v3-dialog-wrapper">
         <div class="v3-dialog">
           <header>
-            <slot name="title" />
+            <slot name="title"/>
             <span class="v3-dialog-close" @click="close"></span>
           </header>
           <main>
-            <slot name="content" />
+            <slot name="content"/>
           </main>
           <footer>
             <Button level="main" @click="ok">OK</Button>

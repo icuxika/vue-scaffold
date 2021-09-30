@@ -7,6 +7,8 @@
     "jsx": "preserve", // TS中使用JSX
     "sourceMap": true, // 生成目标文件的sourceMap文件
     "resolveJsonModule": true,
+    "skipLibCheck": true, // 跳过第三方库的检查
+    "experimentalDecorators": true,
     "esModuleInterop": true, // 允许export=导出，由import from导入
     "lib": ["esnext", "dom"] // TS需要引用的库
   },

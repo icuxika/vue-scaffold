@@ -6,5 +6,6 @@
 interface Props {
   content: string;
 }
+
 const props = withDefaults(defineProps<Props>(), {});
 </script>

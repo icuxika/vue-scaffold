@@ -1,3 +1,3 @@
 declare module "vfile-message" {
-  export type VFileMessage = any;
+    export type VFileMessage = any;
 }

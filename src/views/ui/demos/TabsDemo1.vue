@@ -12,6 +12,7 @@
 <script setup lang="ts">
 import Tabs from "../libs/Tabs.vue";
 import Tab from "../libs/Tab.vue";
-import { ref } from "vue";
+import {ref} from "vue";
+
 const x = ref("导航2");
 </script>
